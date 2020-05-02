@@ -1,0 +1,22 @@
+% We wish to describe orientation in the planar world by a single angle θ, instead of by a 2 x 2 rotation matrix. 
+% The user will always communicate in terms of angle θ, but internally we will need the rotation-matrix form. 
+% For the position-vector part of a frame, the user will specify an x and a y value. So, we want to allow the user to specify a 
+%frame as a 3-tuple: (x, y, θ). Internally, we wish to use a 2 x 1 position vector and a 2 x 2 rotation matrix, so we need conversion 
+%routines. 
+
+% Where “UTOI” stands for “User form TO Internal form.” The first argument is the 3-tuple (x, y, θ), and the second argument is of 
+% type “frame.” Consists of a (2x1) position vector and a (2x2) rotation matrix. 
+
+% If you wish, you may represent the frame with a (3x3) homogeneous transform in which the third row is [0 0 1]. 
+% The inverse routine will also be necessary.
+
+function iform=UTOI(uform)
+  x=uform(1);   % x=the first element of the vector
+  y=uform(2);   % y=the second element of the vector
+  thetaDeg=uform(3); %thetaDeg=the third element of the vector
+ 
+  theta=deg2rad(thetaDeg);  %express theta in radians
+  r=[cos(theta),-sin(theta);sin(theta),cos(theta)]; %Rotation matrix in 2D
+  t=[x,y]'; %position vector
+  iform=[r,t;[0 0],1]; %Transform
+end
