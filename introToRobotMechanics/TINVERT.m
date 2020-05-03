@@ -8,3 +8,12 @@ function arelb=TINVERT(brela)
     bpaorg=-brota*apborg; %calculation of position vector of arelb
     arelb=[brota,bpaorg;0 0 1]; %Construction of my transform
 end    
+
+
+% aRb=UTOI([1 2 30]);bRa=TINVERT(aRb)
+% 
+% bRa =
+% 
+%     0.8660    0.5000   -1.8660
+%    -0.5000    0.8660   -1.2321
+%          0         0    1.0000
