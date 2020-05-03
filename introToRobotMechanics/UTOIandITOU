@@ -24,7 +24,7 @@ function uform=ITOU(iform)
     uform=[x,y,theta]; %print matrix as a user-form vector
 end    
 
-% 
+ 
 % UTOI([2,3,50])
 % 
 % ans =
